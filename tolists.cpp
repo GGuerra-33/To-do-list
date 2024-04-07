@@ -6,7 +6,7 @@ int main(){
     int options[3] = {1, 2, 3};
     std::string new_task = {};
 
-    std::cout << "What do you want to do" << std::endl;
+    std::cout << "What do you want to do?" << std::endl;
     
     for (int i=0; i>3; ++i){
         std::cout << options[i] << std::endl;
@@ -15,11 +15,14 @@ int main(){
     int selected_option;
     std::cin >> selected_option;
 
-    if (selected_option = 1){
-        std::cout << "Create a new task:" << std::endl;
-        std::cin >> new_task /* users writes a task */;
+    std::string new_task = {};
 
-        // Task is appended to the list "tasks"
+    if (selected_option == 1){
+        std::cout << "Create a new task:" << std::endl;
+        std::getline(std::cin, new_task) /* users writes a task */;
+        tasks.append(new_task);   // Task is appended to the list "tasks"
+        std::cout << tasks << std::endl;
+
     }
 
     /* If loop for option 2
@@ -39,5 +42,7 @@ int main(){
 
     //Consider changing option 4 for option 2/3
     //Create a decent debugging environment
+
+    return 0;
 
 }
