@@ -13,25 +13,6 @@ void DisplayMenu (){
 
 }
 
-/*void PerformAction(int choice){
-  switch (choice)
-  {
-  case 1:
-    std::cout << "You chose option number 1" << std::endl;
-  
-  case 2:
-    std:: cout << "You chose option number 2" << std::endl;
-  
-  case 3:
-    std::cout << "You chose option number 3 " << std::endl;
-
-  case 4:
-    break;
-    
-  default:
-    std::cout << "Invalid option" << std::endl;
-  }
-}*/
 
 void AddTask(std::vector<std::string>& taskList){
   std::string task;
@@ -43,49 +24,66 @@ void AddTask(std::vector<std::string>& taskList){
 }
 
 
+void DisplayTasks(){
+  std::vector<std::string> taskList;
+  std::string task;
+
+  for(const auto& task : taskList){
+    std::cout << task << std::endl;
+  }
+
+}
+
+void DeleteTask(){
+  
+}
+
 int main(){
 
   int choice;
-  
   std::vector<std::string> tasks;
-
   int delete_task;
 
+  do{
+    DisplayMenu();
 
-  DisplayMenu();
-
-  std::cout << "Select an option: ";
-  std::cin >> choice;
+    std::cout << "Select an option: ";
+    std::cin >> choice;
   
     //PerformAction(choice);
-  
 
-  
+    switch (choice)
+    {
+    case 1:
+      AddTask(tasks);
 
-  if (choice == 1){
-    AddTask(tasks);
+      std::cout << "Tasks in the list: \n";
 
-    std::cout << "Tasks in the list: \n";
+      for (const auto& task : tasks){
+        std::cout << task << std::endl;
+      }
+
+      break;
+
+    case 2:
+      std::cout << "What task do you want to complete?: ";
     
-    for(const auto& task : tasks){
-      std::cout << task << std::endl;
+    default:
+      std::cout << "Invalid option \n";
+      break;
     }
-  }
 
-  if (choice == 2){
-    for(const auto& task : tasks){
-      std::cout << task << std::endl;
-    }
+
+    if (choice == 2){
+      for(const auto& task : tasks){
+        std::cout << task << std::endl;
+      }
     
-    std::cout << "What task do you want to complete:" << std::endl;
+      std::cout << "What task do you want to complete:" << std::endl;
 
-    std::cin >> delete_task;
-    
+      std::cin >> delete_task;
 
+      }
+  } while (choice != 4);
+  
   }
-
-
-
-  return 0;
-
-}
