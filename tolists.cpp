@@ -49,6 +49,8 @@ int main(){
   
   std::vector<std::string> tasks;
 
+  int delete_task;
+
 
   DisplayMenu();
 
@@ -71,7 +73,14 @@ int main(){
   }
 
   if (choice == 2){
-    std::cout << "What task do you want to complete" << std::endl;
+    for(const auto& task : tasks){
+      std::cout << task << std::endl;
+    }
+    
+    std::cout << "What task do you want to complete:" << std::endl;
+
+    std::cin >> delete_task;
+    
 
   }
 
